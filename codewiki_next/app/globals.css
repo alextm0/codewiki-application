@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&family=Righteous&display=swap');
+
+@import 'highlight.js/styles/default.css';
+
+.custom-gradient {
+  background: linear-gradient(165deg, #112a4b, #1c2968, #332a83);
+}
+
+.gradienttt {
+  background: linear-gradient(115deg, #f9520e, #f9520e, #f9520e);}
+
+html {
+    scroll-behavior: smooth;
+  }
+  
+  /* width */
+  ::-webkit-scrollbar {
+    width: 12px;
+    /* display: none; */
+    background-color: #F5F5F5;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    /* border-radius: 10px; */
+    background-color: white;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    /* border-radius: 10px; */
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #a0aec0;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0;
+  }
+
+/* Apply dark background to code blocks */
+pre code {
+  background: #272822; /* Monokai background color */
+  color: #f8f8f2; /* Monokai default text color */
+  /* Additional styling as needed */
+}
+
+/* Optionally, set a different color for the background of line numbers if they're enabled */
+pre code .line-numbers-rows {
+  background: #1e1e1e; /* Match the line numbers background with code block background */
+}
+
+/* Ensure inline code snippets do not receive the dark background */
+:not(pre) > code {
+  background: #f5f5f5; /* Light background for inline code */
+  color: #333; /* Dark color for text in inline code */
+  padding: 0.2em 0.4em; /* Padding around inline code */
+  border-radius: 0.3em; /* Rounded corners for inline code */
+  border: 1px solid #ddd; /* Border for inline code */
+}
+
+/* ---------------------------- MARKDOWN STYLING ---------------------------------------------- */
+
+.markdown h1 {
+  @apply text-3xl md:text-3xl text-blue-600 font-bold mt-10 mb-6 leading-tight;
+}
+
+.markdown h2 {
+  @apply text-xl md:text-xl text-blue-600 font-semibold mt-8 mb-4 leading-snug;
+}
+
+.markdown h3 {
+  @apply text-xl md:text-2xl text-blue-500 font-semibold mt-6 mb-3 leading-normal;
+}
+
+.markdown h4 {
+  @apply text-lg text-blue-500 font-semibold mt-4 mb-2;
+}
+
+.markdown a {
+  @apply text-blue-500 hover:text-blue-700 underline transition-colors duration-200 ease-in-out;
+}
+
+.markdown p {
+  @apply my-4 text-base md:text-lg leading-relaxed text-gray-700;
+}
+
+.markdown ul {
+  @apply list-disc pl-5 md:pl-8 my-4;
+}
+
+.markdown ol {
+  @apply list-decimal pl-5 md:pl-8 my-4;
+}
+
+.markdown li {
+  @apply my-2;
+}
+
+.markdown blockquote {
+  @apply border-l-4 border-blue-500 pl-4 my-4 italic text-gray-600;
+}
+
+.markdown pre {
+  @apply bg-gray-900 text-white p-4 rounded my-4 overflow-x-auto;
+}
+
+.markdown code {
+
+}
+
+.markdown img {
+  @apply mx-auto my-6 shadow-lg max-w-full h-auto;
+}
+
+
+/* Additional responsive text sizing */
+@media (min-width: 768px) {
+  .markdown p {
+    @apply text-lg;
+  }
+
+  .markdown blockquote {
+    @apply text-xl;
+  }
+}
+
+/* Apply dark background to code blocks */
+.markdown pre code {
+  background: #272822; /* Monokai background color */
+  color: #f8f8f2; /* Monokai default text color */
+  /* Additional styling as needed */
+}
+
+/* Optionally, set a different color for the background of line numbers if they're enabled */
+.markdown pre code .line-numbers-rows {
+  background: #1e1e1e; /* Match the line numbers background with code block background */
+}
+
+/* Ensure inline code snippets do not receive the dark background */
+.markdown :not(pre) > code {
+  background: #f5f5f5; /* Light background for inline code */
+  color: #333; /* Dark color for text in inline code */
+  padding: 0.2em 0.4em; /* Padding around inline code */
+  border-radius: 0.3em; /* Rounded corners for inline code */
+  border: 1px solid #ddd; /* Border for inline code */
+}
