@@ -1,4 +1,4 @@
-"use client";
+"use client"; // Without this line, I would get runtime errors in the browser
 
 import Image from "next/image";
 import Link from "next/link";
@@ -6,15 +6,16 @@ import ThemeToggle from "./ThemeToggle";
 
 import { MdOutlineArrowDropDown } from "react-icons/md";
 
+import { IoSchoolSharp } from "react-icons/io5";
+import { FaUserGraduate } from "react-icons/fa";
+import { RiMedal2Fill } from "react-icons/ri";
+
 import {
   Dropdown,
   DropdownTrigger,
   DropdownMenu,
-  DropdownSection,
   DropdownItem,
-  Button,
 } from "@nextui-org/react";
-import { Content } from "next/font/google";
 
 export default function Navbar() {
   return (
@@ -42,37 +43,57 @@ export default function Navbar() {
           <div className="hidden md:flex flex-grow items-center justify-center">
             <nav className="flex space-x-10">
               {/* Navigation links */}
-              <Link href="/articles">
-                <div className="text-base font-medium text-gray-500 hover:text-gray-100">
-                  Articole
-                </div>
-              </Link>
-
-              {/* ------------------------------------------------------------- */}
-
-              <div className="font-medium text-gray-500 hover:text-gray-100 flex justify-center items-center gap-1">
-                <Dropdown classNames={{
-                  content: "font-medium font-poppins",
-                }}>
-                  <DropdownTrigger>
-                    Categorii
-                  </DropdownTrigger>                  
-                  <DropdownMenu>
-                    <DropdownItem href="/olimpiada">Olimpiada</DropdownItem>
-                    <DropdownItem href="/admitere">Admitere</DropdownItem>
-                    <DropdownItem href="/bacalaureat">Bacalaureat</DropdownItem>
-                  </DropdownMenu>
-                </Dropdown>
-                <MdOutlineArrowDropDown />
+              <div className="relative after:absolute after:bg-gray-200 mt-2  after:bottom-[-5px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300">
+                <Link href="/articles">
+                  <div className="text-base font-medium text-gray-500 hover:text-gray-100">
+                    Articole
+                  </div>
+                </Link>
               </div>
 
               {/* ------------------------------------------------------------- */}
 
-              <Link href="/problems">
-                <div className="text-base font-medium text-gray-500 hover:text-gray-100">
-                  Probleme
+              <div className="relative after:absolute after:bg-gray-200 mt-2 after:bottom-[-5px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300 clickable-cursor">
+                <div className="font-medium text-gray-500 hover:text-gray-100 flex justify-center items-center gap-1 clickable-cursor">
+                  <Dropdown
+                    classNames={{ content: "font-medium font-poppins" }}
+                  >
+                    <DropdownTrigger>
+                      <div className="flex items-center">
+                        Categorii
+                        <MdOutlineArrowDropDown />
+                      </div>
+                    </DropdownTrigger>
+                    <DropdownMenu>
+                      <DropdownItem href="/olimpiada">
+                        <div className="flex gap-2">
+                          <RiMedal2Fill /> Olimpiada
+                        </div>
+                      </DropdownItem>
+                      <DropdownItem href="/admitere">
+                        <div className="flex gap-2">
+                          <FaUserGraduate /> Admitere
+                        </div>
+                      </DropdownItem>
+                      <DropdownItem href="/bacalaureat">
+                        <div className="flex gap-2">
+                          <IoSchoolSharp /> Bacalaureat
+                        </div>{" "}
+                      </DropdownItem>
+                    </DropdownMenu>
+                  </Dropdown>
                 </div>
-              </Link>
+              </div>
+
+              {/* ------------------------------------------------------------- */}
+
+              <div className="relative after:absolute after:bg-gray-200 mt-2 after:bottom-[-5px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300">
+                <Link href="/problems">
+                  <div className="text-base font-medium text-gray-500 hover:text-gray-100">
+                    Probleme
+                  </div>
+                </Link>
+              </div>
             </nav>
           </div>
 

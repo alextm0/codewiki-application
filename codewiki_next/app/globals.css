@@ -6,6 +6,10 @@
 
 @import 'highlight.js/styles/default.css';
 
+.clickable-cursor {
+  cursor: pointer;
+}
+
 .custom-gradient {
   background: linear-gradient(165deg, #112a4b, #1c2968, #332a83);
 }
@@ -67,11 +71,11 @@ pre code .line-numbers-rows {
 /* ---------------------------- MARKDOWN STYLING ---------------------------------------------- */
 
 .markdown h1 {
-  @apply text-3xl md:text-3xl text-blue-600 font-bold mt-10 mb-6 leading-tight;
+  @apply text-3xl md:text-3xl text-[#d6524d] font-bold mt-10 mb-6 leading-tight;
 }
 
 .markdown h2 {
-  @apply text-xl md:text-xl text-blue-600 font-semibold mt-8 mb-4 leading-snug;
+  @apply text-xl md:text-xl text-[#d6524d] font-bold mt-8 mb-4 leading-snug;
 }
 
 .markdown h3 {
@@ -83,7 +87,7 @@ pre code .line-numbers-rows {
 }
 
 .markdown a {
-  @apply text-blue-500 hover:text-blue-700 underline transition-colors duration-200 ease-in-out;
+  @apply text-blue-500 hover:text-blue-700  transition-colors duration-200 ease-in-out;
 }
 
 .markdown p {
@@ -99,7 +103,7 @@ pre code .line-numbers-rows {
 }
 
 .markdown li {
-  @apply my-2;
+  @apply my-2 text-base md:text-lg leading-relaxed text-gray-700;
 }
 
 .markdown blockquote {
@@ -108,10 +112,6 @@ pre code .line-numbers-rows {
 
 .markdown pre {
   @apply bg-gray-900 text-white p-4 rounded my-4 overflow-x-auto;
-}
-
-.markdown code {
-
 }
 
 .markdown img {
@@ -130,23 +130,10 @@ pre code .line-numbers-rows {
   }
 }
 
-/* Apply dark background to code blocks */
-.markdown pre code {
-  background: #272822; /* Monokai background color */
-  color: #f8f8f2; /* Monokai default text color */
-  /* Additional styling as needed */
+.markdown code {
+  background-color: white;
 }
 
-/* Optionally, set a different color for the background of line numbers if they're enabled */
-.markdown pre code .line-numbers-rows {
-  background: #1e1e1e; /* Match the line numbers background with code block background */
-}
-
-/* Ensure inline code snippets do not receive the dark background */
-.markdown :not(pre) > code {
-  background: #f5f5f5; /* Light background for inline code */
-  color: #333; /* Dark color for text in inline code */
-  padding: 0.2em 0.4em; /* Padding around inline code */
-  border-radius: 0.3em; /* Rounded corners for inline code */
-  border: 1px solid #ddd; /* Border for inline code */
+.markdown pre {
+  background-color: white;
 }
