@@ -44,7 +44,7 @@ export default function Navbar() {
             <nav className="flex space-x-10">
               {/* Navigation links */}
               <div className="relative after:absolute after:bg-gray-200 mt-2  after:bottom-[-5px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300">
-                <Link href="/articles">
+                <Link href="/articole">
                   <div className="text-base font-medium text-gray-500 hover:text-gray-100">
                     Articole
                   </div>
@@ -88,7 +88,7 @@ export default function Navbar() {
               {/* ------------------------------------------------------------- */}
 
               <div className="relative after:absolute after:bg-gray-200 mt-2 after:bottom-[-5px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300">
-                <Link href="/problems">
+                <Link href="/probleme">
                   <div className="text-base font-medium text-gray-500 hover:text-gray-100">
                     Probleme
                   </div>
