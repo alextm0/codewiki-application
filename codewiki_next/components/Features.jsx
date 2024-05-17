@@ -26,7 +26,7 @@ function Features() {
               <span className='text-orange-500 font-medium'>
                 Conținut relevant și actualizat
               </span> <br/> 
-                Lucrăm regulat la articole diversificate, prezentate în mod accesibil și ușor de înțeles
+                Lucrăm regulat la articole diversificate, prezentate în mod accesibil și ușor de înțeles.
             </p>
           </div>
           <div className="flex items-center space-x-5 my-5">
@@ -48,8 +48,8 @@ function Features() {
               </svg>
             </div>
             <p className='text-gray-500'>
-              <span className='text-orange-500 font-medium'>Feedback și suport: </span> < br/>
-              Oferim o modalitate ușoară și rapidă pentru utilizatorii noștri de a ne contacta
+              <span className='text-orange-500 font-medium'>Feedback și suport </span> < br/>
+              Oferim o modalitate ușoară și rapidă pentru utilizatorii noștri de a ne contacta.
             </p>
           </div>
         </div>
