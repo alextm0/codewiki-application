@@ -5,7 +5,7 @@ import React from "react";
 import ResourcesTable from "@/components/EduResources";
 import PageDivider from "@/components/PageDivider";
 import ProblemSetTable from "@/components/ProblemList";
-import { getPostBySlug } from "@/services/fetchBlogData";
+import { getPostByBadgeAndSlug, getPostBySlug } from "@/services/fetchBlogData";
 
 import Rating from "@/components/Rating";
 import ReactMarkdown from "react-markdown";
@@ -26,7 +26,8 @@ const Page = ({ params }) => {
   React.useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const blogData = await getPostBySlug(slug);
+        const blogData = await getPostByBadgeAndSlug("admitere", slug);
+        console.log(blogData);
         setBlog(blogData.data[0]);
       } catch (error) {
         console.error("Error fetching blog:", error);
@@ -97,20 +98,31 @@ const Page = ({ params }) => {
                   },
                 }}
               />
+              {
+                <ResourcesTable
+                  header="Resources"
+                  resource={blog.attributes?.eduResources}
+                />
+              }
+
+              {
+                <ProblemSetTable
+                  header="Practice Problems"
+                  problemSet={blog.attributes?.problemList}
+                />
+              }
             </div>
-
-           {<ResourcesTable header="Resources" resource={blog.attributes?.eduResources} />}
-
-
-            {
-              <ProblemSetTable
-                header="Practice Problems"
-                problemSet={blog.attributes?.problemList}
-              />
-            }
 
             {/* PAGE DIVIDER */}
             <div className="divider w-[100%]"></div>
+          </div>
+        </div>
+      )}
+
+      {!blog && (
+        <div className="flex justify-center items-center mt-20">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold">Page not ready yet!</h1>
           </div>
         </div>
       )}

@@ -1,16 +1,16 @@
 "use client"
 
-import React, { useRef } from 'react';
+import React, { useRef } from 'react'
 
 const Contact = () => {
-  const nameRef = useRef();
-  const emailRef = useRef();
-  const messageRef = useRef();
+  const nameRef = useRef()
+  const emailRef = useRef()
+  const messageRef = useRef()
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     /* 
-    Do something here!
+    Do something here !
     */
   }
 
@@ -40,7 +40,6 @@ const Contact = () => {
 
       <div className="relative mx-auto w-full max-w-7xl py-20">
         <div className="grid grid-cols-2">
-
           {/* CONTACT FORM CONTAINER */}
           <div className="order-3 md:order-2 col-span-full md:col-span-1 py-5 md:py-10 px-6">
             <form action="" className="mx-auto max-w-xl space-y-4" onSubmit={handleSubmit}>

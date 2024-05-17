@@ -33,7 +33,7 @@ function Articles({ blogs }) {
             blogs.data.slice(0, visibleArticles).map((blog, index) => (
               <Link
                 key={index}
-                href={`/blog/${blog.attributes?.slug}`}
+                href={`/${blog.attributes?.badge.toLowerCase()}/${blog.attributes?.slug}`}
                 className="cursor-pointer"
               >
                 <BlogPost

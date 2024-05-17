@@ -19,7 +19,7 @@ function Hero() {
             </p>
             <Link
               href={"/cursuri"}
-              className="bg-red-500 dark:bg-yellow-400 font-quicksand mx-auto lg:mx-0 inline-flex font-bold px-8 py-3 my-8 text-sm text-white transition rounded hover:scale-110 hover:shadow-xl active:bg-indigo-500 focus:outline-none focus:ring"
+              className="bg-red-500 font-quicksand mx-auto lg:mx-0 inline-flex font-bold px-8 py-3 my-8 text-sm text-white transition rounded hover:scale-110 hover:shadow-xl active:bg-indigo-500 focus:outline-none focus:ring"
             >
               Incepe aici
             </Link>

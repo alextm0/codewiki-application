@@ -6,22 +6,54 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
+    "/admitere/[slug]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/admitere/[slug]/page.css",
+      "static/chunks/app/admitere/[slug]/page.js"
+    ],
     "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/page.css",
       "static/chunks/app/page.js"
     ],
-    "/articles/page": [
+    "/bacalaureat/[slug]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/articles/page.js"
+      "static/css/app/bacalaureat/[slug]/page.css",
+      "static/chunks/app/bacalaureat/[slug]/page.js"
     ],
-    "/blog/[blogID]/page": [
+    "/admitere/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/blog/[blogID]/page.css",
-      "static/chunks/app/blog/[blogID]/page.js"
+      "static/chunks/app/admitere/page.js"
+    ],
+    "/articole/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/articole/page.js"
+    ],
+    "/olimpiada/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/olimpiada/page.js"
+    ],
+    "/cursuri/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/cursuri/page.js"
+    ],
+    "/olimpiada/[slug]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/olimpiada/[slug]/page.css",
+      "static/chunks/app/olimpiada/[slug]/page.js"
+    ],
+    "/bacalaureat/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/bacalaureat/page.js"
     ]
   }
 }

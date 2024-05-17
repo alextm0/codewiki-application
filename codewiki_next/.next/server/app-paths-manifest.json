@@ -1,5 +1,7 @@
 {
+  "/admitere/[slug]/page": "app/admitere/[slug]/page.js",
   "/page": "app/page.js",
-  "/articles/page": "app/articles/page.js",
-  "/blog/[blogID]/page": "app/blog/[blogID]/page.js"
+  "/olimpiada/page": "app/olimpiada/page.js",
+  "/olimpiada/[slug]/page": "app/olimpiada/[slug]/page.js",
+  "/bacalaureat/[slug]/page": "app/bacalaureat/[slug]/page.js"
 }

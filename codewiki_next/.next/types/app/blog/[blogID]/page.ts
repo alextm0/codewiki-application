@@ -1,4 +1,4 @@
-// File: C:\Users\alext\Desktop\codewiki\codewiki_next\app\blog\[blogID]\page.jsx
+// File: C:\Users\alext\Desktop\codewiki-application\codewiki_next\app\blog\[blogID]\page.jsx
 import * as entry from '../../../../../app/blog/[blogID]/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

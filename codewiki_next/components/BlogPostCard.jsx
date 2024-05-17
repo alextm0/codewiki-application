@@ -8,6 +8,10 @@ function BlogPost({ badge, title, date, description, articleImage }) {
     ? `${process.env.NEXT_PUBLIC_API_ROOT}${articleImage.data.attributes.url}`
     : null;
 
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   return (
     <div className="overflow-hidden shadow-lg transition duration-500 ease-in-out transform hover:shadow-2xl rounded-lg md:w-80">
       <div className="relative h-48 w-full">
@@ -32,7 +36,7 @@ function BlogPost({ badge, title, date, description, articleImage }) {
           <div className="text-sm text-gray-600 font-medium">
             <a href="#" className="m-1 rounded text-xs text-orange-500 ">
               {" "}
-              {badge}{" "}
+              {capitalizeFirstLetter(badge)}{" "}
             </a>
             •
           </div>
