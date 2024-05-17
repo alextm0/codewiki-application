@@ -31,7 +31,11 @@ function Articles({ blogs }) {
         <div className="grid grid-cols-1 md:grid-cols-3 justify-center justify-items-center px-10 md:px-0 gap-10 md:gap-5 pt-10">
           {blogs.data &&
             blogs.data.slice(0, visibleArticles).map((blog, index) => (
-              <Link key={index} href={`/blog/${blog.id}`}>
+              <Link
+                key={index}
+                href={`/blog/${blog.attributes?.slug}`}
+                className="cursor-pointer"
+              >
                 <BlogPost
                   badge={blog.attributes?.badge}
                   slug={blog.attributes?.slug}

@@ -22,6 +22,16 @@ export const getPostById = async (id) => {
   }
 }
 
+export const getPostBySlug = async (slug) => {
+  try {
+    // Fetch the data from the API, filtering by slug directly in the URL
+    const response = await axios.get(`${API_BLOGS}?filters[slug][$eq]=${slug}&populate=*`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching data from API:', error);
+    throw error;
+  }
+};
 
 // ----------------------------------------------------------------
 

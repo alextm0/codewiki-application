@@ -1,6 +1,13 @@
 "use client";
 
 import React from "react";
+
+import ResourcesTable from "@/components/EduResources";
+import PageDivider from "@/components/PageDivider";
+import ProblemSetTable from "@/components/ProblemList";
+import { getPostBySlug } from "@/services/fetchBlogData";
+
+import Rating from "@/components/Rating";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
@@ -8,41 +15,26 @@ import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css"; // KaTeX CSS
 import rehypeRaw from "rehype-raw";
 
-import "highlight.js/styles/monokai.css";
-
-import Link from "next/link";
-
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-// ----------------------------------------
-import Rating from "@/components/Rating";
-import PageDivider from "@/components/PageDivider";
-
-import { getPostById, getAllPostIds } from "@/services/fetchBlogData";
-
-import { BlocksRenderer } from "@strapi/blocks-react-renderer";
-
-import "@/app/globals.css";
-
-const BlogPost = ({ params }) => {
-  const { blogID } = params;
+const Page = ({ params }) => {
+  const { slug } = params;
 
   const [blog, setBlog] = React.useState({});
 
   React.useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const blogData = await getPostById(blogID);
-        console.log(blogData.data);
-        setBlog(blogData.data);
+        const blogData = await getPostBySlug(slug);
+        setBlog(blogData.data[0]);
       } catch (error) {
         console.error("Error fetching blog:", error);
       }
     };
 
     fetchBlog();
-  }, [blogID]);
+  }, [slug]);
 
   return (
     <div>
@@ -107,6 +99,16 @@ const BlogPost = ({ params }) => {
               />
             </div>
 
+           {<ResourcesTable header="Resources" resource={blog.attributes?.eduResources} />}
+
+
+            {
+              <ProblemSetTable
+                header="Practice Problems"
+                problemSet={blog.attributes?.problemList}
+              />
+            }
+
             {/* PAGE DIVIDER */}
             <div className="divider w-[100%]"></div>
           </div>
@@ -116,4 +118,4 @@ const BlogPost = ({ params }) => {
   );
 };
 
-export default BlogPost;
+export default Page;

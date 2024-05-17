@@ -1,26 +1,24 @@
 "use client"
 
-import React, { useRef } from 'react'
-
+import React, { useRef } from 'react';
 
 const Contact = () => {
-
-  const nameRef = useRef()
-  const emailRef = useRef()
-  const messageRef = useRef()
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const messageRef = useRef();
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     /* 
-    Do something here !
+    Do something here!
     */
   }
 
   return (
     <div className='bg-[#00044d]'>
       <svg className="wave-top" viewBox="0 0 1439 147" version="1.1">
-        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-          <g transform="translate(-1.000000, -14.000000)" fill-rule="nonzero">
+        <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+          <g transform="translate(-1.000000, -14.000000)" fillRule="nonzero">
             <g className="wave" fill="white">
               <path
                 d="M1440,84 C1383.555,64.3 1342.555,51.3 1317,45 C1259.5,30.824 1206.707,25.526 1169,22 C1129.711,18.326 1044.426,18.475 980,22 C954.25,23.409 922.25,26.742 884,32 C845.122,37.787 818.455,42.121 804,45 C776.833,50.41 728.136,61.77 713,65 C660.023,76.309 621.544,87.729 584,94 C517.525,105.104 484.525,106.438 429,108 C379.49,106.484 342.823,104.484 319,102 C278.571,97.783 231.737,88.736 205,84 C154.629,75.076 86.296,57.743 0,32 L0,0 L1440,0 L1440,84 Z"
@@ -28,12 +26,12 @@ const Contact = () => {
             </g>
             <g transform="translate(1.000000, 15.000000)" fill="#FFFFFF">
               <g transform="translate(719.500000, 68.500000) rotate(-180.000000) translate(-719.500000, -68.500000) ">
-                <path d="M0,0 C90.7283404,0.927527913 147.912752,27.187927 291.910178,59.9119003 C387.908462,81.7278826 543.605069,89.334785 759,82.7326078 C469.336065,156.254352 216.336065,153.6679 0,74.9732496" opacity="0.100000001"></path>
+                <path d="M0,0 C90.7283404,0.927527913 147.912752,27.187927 291.910178,59.9119003 C387.908462,81.7278826 543.605069,89.334785 759,82.7326078 C469.336065,156.254352 216.336065,153.6679 0,74.9732496" opacity="0.1"></path>
                 <path
                   d="M100,104.708498 C277.413333,72.2345949 426.147877,52.5246657 546.203633,45.5787101 C666.259389,38.6327546 810.524845,41.7979068 979,55.0741668 C931.069965,56.122511 810.303266,74.8455141 616.699903,111.243176 C423.096539,147.640838 250.863238,145.462612 100,104.708498 Z"
-                  opacity="0.100000001"
+                  opacity="0.1"
                 ></path>
-                <path d="M1046,51.6521276 C1130.83045,29.328812 1279.08318,17.607883 1439,40.1656806 L1439,120 C1271.17211,77.9435312 1140.17211,55.1609071 1046,51.6521276 Z" opacity="0.200000003"></path>
+                <path d="M1046,51.6521276 C1130.83045,29.328812 1279.08318,17.607883 1439,40.1656806 L1439,120 C1271.17211,77.9435312 1140.17211,55.1609071 1046,51.6521276 Z" opacity="0.2"></path>
               </g>
             </g>
           </g>
@@ -95,21 +93,20 @@ const Contact = () => {
               </p>
               {/* ::Email contact */}
               <a href="mailto:codewiki.blog@gmail.com" className="inline-flex items-center text-base text-blue-400 font-semibold hover:text-orange-500">
-                {/* <MailIcon className="mr-2 w-5 text-gray-400" /> */}
                 codewiki.blog@gmail.com
               </a>
               {/* ::Address */}
               {/* ::Socials */}
               <div className="flex items-center">
                 {/* :Twitter */}
-                <a href="#twitter" className="m-1.5 w-8 h-8 inline-flex justify-center items-center shadow-sm rounded-full bg-[#1DA1F2] text-white filter hover:brightness-125" style={{ backgroundColor: "#1DA1F2" }}>
+                <a href="#twitter" className="m-1.5 w-8 h-8 inline-flex justify-center items-center shadow-sm rounded-full bg-[#1DA1F2] text-white filter hover:brightness-125">
                   {/* ::twitter svg */}
                   <svg className="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
                   </svg>
                 </a>
                 {/* :FACEBOOK */}
-                <a href="#facebook" className="m-1.5 w-8 h-8 inline-flex justify-center items-center shadow-sm rounded-full bg-[#4267B2] text-white filter hover:brightness-125" style={{ backgroundColor: "#4267B2" }}>
+                <a href="#facebook" className="m-1.5 w-8 h-8 inline-flex justify-center items-center shadow-sm rounded-full bg-[#4267B2] text-white filter hover:brightness-125">
                   {/* ::facebook svg */}
                   <svg className="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M16.403,9H14V7c0-1.032,0.084-1.682,1.563-1.682h0.868c0.552,0,1-0.448,1-1V3.064c0-0.523-0.401-0.97-0.923-1.005C15.904,2.018,15.299,1.999,14.693,2C11.98,2,10,3.657,10,6.699V9H8c-0.552,0-1,0.448-1,1v2c0,0.552,0.448,1,1,1l2-0.001V21c0,0.552,0.448,1,1,1h2c0.552,0,1-0.448,1-1v-8.003l2.174-0.001c0.508,0,0.935-0.381,0.993-0.886l0.229-1.996C17.465,9.521,17.001,9,16.403,9z" />
@@ -123,7 +120,7 @@ const Contact = () => {
                   </svg>
                 </a>
                 {/* :LinkedIn */}
-                <a href="https://www.linkedin.com/company/codewiki/" className="m-1.5 w-8 h-8 inline-flex justify-center items-center shadow-sm rounded-full bg-[#0077B5] text-white filter hover:brightness-125" style={{ backgroundColor: "#0077B5" }}>
+                <a href="https://www.linkedin.com/company/codewiki/" className="m-1.5 w-8 h-8 inline-flex justify-center items-center shadow-sm rounded-full bg-[#0077B5] text-white filter hover:brightness-125">
                   {/* ::linkedin svg */}
                   <svg className="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.78-1.75-1.732s.784-1.732 1.75-1.732 1.75.78 1.75 1.732-.784 1.732-1.75 1.732zm13.5 11.268h-3v-5.47c0-1.303-.025-2.98-1.815-2.98-1.815 0-2.092 1.417-2.092 2.886v5.564h-3v-10h2.881v1.368h.041c.4-.756 1.378-1.552 2.837-1.552 3.033 0 3.594 1.997 3.594 4.592v5.592z" />
@@ -139,4 +136,4 @@ const Contact = () => {
   )
 }
 
-export default Contact
+export default Contact;
