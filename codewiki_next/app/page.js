@@ -9,21 +9,18 @@ import { useState, useEffect } from "react";
 import { getPosts } from "@/services/fetchBlogData";
 import Articles from "@/components/ArticleSection";
 
+import { useFetchData } from "@/services/fetchData";
+
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 export default function Home() {
-  // TODO: Find a better complextity for rendering post by id
-  // TODO: Fix dark mode + light mode
-
-  const [posts, setPosts] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await getPosts();
-      setPosts(data);
-    };
-    fetchData();
-  }, []);
+  const API_BLOGS = process.env.NEXT_PUBLIC_API_BLOGS;
+  const { data: posts, error } = useFetchData(`${API_BLOGS}?populate=*`);
+  if (error) {
+    console.error("Error fetching posts:", error);
+    return <div>Failed to load posts.</div>;
+  }
 
   useEffect(() => {
     AOS.init({ once: true });

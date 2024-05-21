@@ -1,22 +1,19 @@
 "use client";
 
-import { getPosts } from '@/services/fetchBlogData';
 import React from 'react'
-import { useState, useEffect } from 'react';
 
-import Navbar from '@/components/Navbar';
 import PageDivider from '@/components/PageDivider';
 import Articles from '@/components/ArticleSection';
 
+import { useFetchData } from "@/services/fetchData";
+
 const ArticlePage = () => {
-  const [posts, setPosts] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await getPosts();
-      setPosts(data);
-    };
-    fetchData();
-  }, []);
+  const API_BLOGS = process.env.NEXT_PUBLIC_API_BLOGS;
+  const { data: posts, error } = useFetchData(`${API_BLOGS}?populate=*`);
+  if (error) {
+    console.error("Error fetching posts:", error);
+    return <div>Failed to load posts.</div>;
+  }
 
   return (
     <div className="bg-white font-poppins">

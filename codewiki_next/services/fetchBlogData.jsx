@@ -2,9 +2,9 @@ import axios from 'axios';
 
 const API_BLOGS = process.env.NEXT_PUBLIC_API_BLOGS;
 
-export const getPosts = async () => {
+export const getPosts = async (api_endpoint) => {
   try {
-    const response = await axios.get(`${API_BLOGS}?populate=*`);
+    const response = await axios.get(api_endpoint);
     return response.data;
   } catch (error) {
     console.error('Error fetching posts:', error);

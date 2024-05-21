@@ -6,19 +6,15 @@ import { v4 as uuidv4 } from 'uuid';
 import Category from "../../components/Category";
 import PageDivider from "../../components/PageDivider";
 
-import { useState, useEffect } from "react";
-import { getCategories, getCategoryById } from "../../services/fetchBlogData";
-
 function Page() {
-  // Fetch data from API: NEXT_PUBLIC_API_CATEGORIES
-  const [categories, setCategories] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await getCategoryById(1);
-      setCategories(data.data);
-    };
-    fetchData();
-  }, []);
+  const API_CATEGORIES = process.env.NEXT_PUBLIC_API_CATEGORIES;
+  const id = 1;
+  const { data: categories, error } = useFetchData(`${API_CATEGORIES}/${id}`);
+
+  if (error) {
+    console.error("Error fetching categories:", error);
+    return <div>Failed to load categories.</div>;
+  }
 
   const categoriesArray = categories?.attributes?.topics.map((category) => {
     return (

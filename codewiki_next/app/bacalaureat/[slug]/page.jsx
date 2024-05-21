@@ -18,51 +18,48 @@ import rehypeRaw from "rehype-raw";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
+import { useFetchData } from "@/services/fetchData";
+
 const Page = ({ params }) => {
   const { slug } = params;
 
-  const [blog, setBlog] = React.useState({});
+  const API_BLOGS = process.env.NEXT_PUBLIC_API_BLOGS;
+  const { data: blog, error } = useFetchData(`${API_BLOGS}?filters[badge][$eq]=bacalaureat&filters[slug][$eq]=${slug}&populate=*`);
 
-  React.useEffect(() => {
-    const fetchBlog = async () => {
-      try {
-        const blogData = await getPostByBadgeAndSlug("bacalaureat", slug);
-        setBlog(blogData.data[0]);
-      } catch (error) {
-        console.error("Error fetching blog:", error);
-      }
-    };
+  const blogData = blog?.data[0];
 
-    fetchBlog();
-  }, [slug]);
+  if (error) {
+    console.error("Error fetching blog:", error);
+    return <div>Failed to load blog.</div>;
+  }
 
   return (
     <div>
       <div className="bg-gradient-to-br from-[#00044D] to-[#00044D] mb-16">
         <PageDivider />
       </div>
-      {blog && (
+      {blogData && (
         <div className=" md:flex pb-16 md:pb-0 gap-10 justify-center">
           {/* CONTENT COMPONENT */}
           <div className="max-w-full md:max-w-[1024px] px-6 md:px-20  md:py-16 space-y-12 text-gray-800 flex-grow">
             {/* RATING */}
-            <Rating stars={blog.attributes?.rating} onBlogPost={true} />
+            <Rating stars={blogData.attributes?.rating} onBlogPost={true} />
 
             {/* TITLE AND AUTHORS */}
             <div>
               <h1 className="text-gray-800 font-bold text-4xl w-full -mt-5 -mb-3 font-poppins">
-                {blog.attributes?.title}
+                {blogData.attributes?.title}
               </h1>
 
               <h2 className="text-gray-600 font-medium text-lg mt-5 -mb-3 font-quicksand">
-                Authors: {blog.attributes?.authors}
+                Authors: {blogData.attributes?.authors}
               </h2>
             </div>
 
             {/* Render Markdown Content */}
             <div className="max-w-[1024px]">
               <ReactMarkdown
-                children={blog.attributes?.content}
+                children={blogData.attributes?.content}
                 remarkPlugins={[remarkMath, remarkGfm]}
                 rehypePlugins={[rehypeKatex, rehypeRaw]}
                 className="markdown text-justify"
@@ -100,14 +97,14 @@ const Page = ({ params }) => {
               {
                 <ResourcesTable
                   header="Resources"
-                  resource={blog.attributes?.eduResources}
+                  resource={blogData.attributes?.eduResources}
                 />
               }
 
               {
                 <ProblemSetTable
                   header="Practice Problems"
-                  problemSet={blog.attributes?.problemList}
+                  problemSet={blogData.attributes?.problemList}
                 />
               }
             </div>
@@ -118,7 +115,7 @@ const Page = ({ params }) => {
         </div>
       )}
 
-      {!blog && (
+      {!blogData && (
         <div className="flex justify-center items-center mt-20">
           <div className="text-center">
             <h1 className="text-4xl font-bold">Page not ready yet!</h1>
