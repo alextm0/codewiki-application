@@ -3,7 +3,7 @@ import { TbDotsVertical } from "react-icons/tb";
 import Link from "next/link";
 import { v4 as uuidv4 } from "uuid";
 
-function ProblemSetTable({ problemSetName, problemSet }) {
+function ProblemList({ problemSetName, problemSet }) {
   const normalBadge = (
     <span className="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
       Normal
@@ -20,6 +20,12 @@ function ProblemSetTable({ problemSetName, problemSet }) {
     </span>
   );
   const otherBadge = <span>...</span>;
+
+  // Create a function that takes a string like "cautare binara" and returns the string with dashes between words
+  // Example: "cautare binara" -> "cautare-binara"
+  function slugify(str) {
+    return str.toLowerCase().replace(/\s+/g, "-");
+  }
 
   let currentBadge;
   if (!problemSet) return;
@@ -58,7 +64,7 @@ function ProblemSetTable({ problemSetName, problemSet }) {
         <td className="py-4 px-6 text-gray-600">{problem.tags}</td>
         {!(problem.badge !== "hard" && problem.badge !== "normal" && problem.badge !== "easy") ? (
           <td className="py-4 px-6 text-2xl text-gray-600">
-            <Link href={`/solutie/${problem.name}`}>
+            <Link href={`/solutie/${slugify(problem.name)}`}>
               <TbDotsVertical />
             </Link>
           </td>
@@ -115,4 +121,4 @@ function ProblemSetTable({ problemSetName, problemSet }) {
   );
 }
 
-export default ProblemSetTable;
+export default ProblemList;

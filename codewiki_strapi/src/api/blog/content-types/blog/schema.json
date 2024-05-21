@@ -42,11 +42,11 @@
         "images"
       ]
     },
-    "problemSet": {
-      "type": "blocks"
+    "problemList": {
+      "type": "json"
     },
-    "resources": {
-      "type": "blocks"
+    "eduResources": {
+      "type": "json"
     }
   }
 }

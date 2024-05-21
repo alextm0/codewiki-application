@@ -56,3 +56,17 @@ export const getCategoryById = async (id) => {
     throw error;
   }
 }
+
+// ----------------------------------------------------------------
+
+const API_SOLUTIONS = process.env.NEXT_PUBLIC_API_SOLUTIONS;
+
+export const getSolutionBySlug = async (slug) => {
+  try {
+    const response = await axios.get(`${API_SOLUTIONS}?filters[slug][$eq]=${slug}&populate=*`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching solution:', error);
+    throw error;
+  }
+};
