@@ -1,10 +1,9 @@
 import "./globals.css";
 
 import Navbar from "@/components/Navbar";
-import PageDivider from "@/components/PageDivider";
 import Providers from "./providers";
 
-import { Inter, Poppins, Righteous, Montserrat } from "next/font/google";
+import { Inter, Poppins, Righteous } from "next/font/google";
 
 const righteous = Righteous({
   weight: "400",
@@ -27,13 +26,6 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const montserrat = Montserrat({
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-montserrat",
-});
-
 export const metadata = {
   title: "CodeWiki",
   description: "A blog for competitive programming related articles",
@@ -43,7 +35,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${righteous.variable} ${poppins.variable} ${inter.variable} ${montserrat.variable}`}
+      className={`${righteous.variable} ${poppins.variable} ${inter.variable}`}
     >
       <body className="flex-grow ">
         <Providers>

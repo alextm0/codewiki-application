@@ -7,8 +7,6 @@ import PageDivider from "../../components/PageDivider";
 import { useFetchData } from "@/services/fetchData";
 
 const Page = () => {
-  
-
   const API_CATEGORIES = process.env.NEXT_PUBLIC_API_CATEGORIES;
   const id = 2;
   const { data: categories, error } = useFetchData(`${API_CATEGORIES}/${id}`);
@@ -33,7 +31,7 @@ const Page = () => {
     );
   }
 
-  const categoriesArray = categories?.attributes?.topics.map((category) => (
+  const categoriesArray = categories?.data?.attributes?.topics.map((category) => (
     <Category
       key={uuidv4()}
       category={category.category}

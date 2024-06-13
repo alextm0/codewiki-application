@@ -31,7 +31,7 @@ const Page = () => {
     );
   }
 
-  const categoriesArray = categories?.attributes?.topics.map((category) => (
+  const categoriesArray = categories?.data?.attributes?.topics.map((category) => (
     <Category
       key={uuidv4()}
       category={category.category}

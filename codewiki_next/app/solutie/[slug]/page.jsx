@@ -12,10 +12,10 @@ import rehypeRaw from "rehype-raw";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import PageDivider from "@/components/PageDivider";
-import { useFetchData } from "@/services/fetchData";
+import { useFetchData, fetcher } from "@/services/fetchData";
 
 function Solutie({ params }) {
-  const { slug } = params;
+  const { slug } = params
 
   const API_SOLUTIONS = process.env.NEXT_PUBLIC_API_SOLUTIONS;
 
@@ -56,21 +56,21 @@ function Solutie({ params }) {
       <div className="md:flex pb-16 md:pb-0 gap-10 justify-center">
         <div className="max-w-full md:max-w-[1024px] px-6 md:px-20 md:py-16 space-y-12 text-gray-800 flex-grow">
           <div>
-            <Link href={`${solutionData.attributes?.link}`}>
+            <Link href={`${solutionData?.attributes?.link}`}>
               <h1 className="text-gray-800 font-bold text-4xl w-full -mt-5 -mb-3 font-poppins">
-                {solutionData.attributes?.title}
+                {solutionData?.attributes?.title}
               </h1>
             </Link>
             <h1 className="text-gray-600 font-medium text-lg mt-5 -mb-3 font-quicksand">
-              Tags: {solutionData.attributes?.tags}
+              Tags: {solutionData?.attributes?.tags}
             </h1>
             <h2 className="text-gray-600 font-medium text-lg mt-5 -mb-3 font-quicksand">
-              Authors: {solutionData.attributes?.author}
+              Authors: {solutionData?.attributes?.author}
             </h2>
           </div>
           <div className="prose max-w-none">
             <ReactMarkdown
-              children={solutionData.attributes?.content}
+              children={solutionData?.attributes?.content}
               remarkPlugins={[remarkGfm, remarkMath]}
               rehypePlugins={[rehypeKatex, rehypeRaw]}
               components={{
