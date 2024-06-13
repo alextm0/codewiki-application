@@ -12,7 +12,7 @@ import rehypeRaw from "rehype-raw";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import PageDivider from "@/components/PageDivider";
-import { useFetchData, fetcher } from "@/services/fetchData";
+import { useFetchData } from "@/services/fetchData";
 
 function Solutie({ params }) {
   const { slug } = params

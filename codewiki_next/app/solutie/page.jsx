@@ -4,7 +4,6 @@ import React from "react";
 import useSWR from "swr";
 import Link from "next/link";
 import PageDivider from "@/components/PageDivider";
-import { fetcher } from "@/services/fetchBlogData"; // Assume fetcher is defined to fetch data
 
 export default function SolutionsPage() {
   const { data, error } = useSWR('${NEXT_PUBLIC_API_SOLUTIONS}?filters[slug][$eq]=${slug}&populate=*', fetcher);
