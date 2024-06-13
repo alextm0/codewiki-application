@@ -6,7 +6,6 @@ import Courses from "@/components/Courses";
 import Features from "@/components/Features";
 import Contact from "@/components/Contact";
 import { useState, useEffect } from "react";
-import { getPosts } from "@/services/fetchBlogData";
 import Articles from "@/components/ArticleSection";
 
 import { useFetchData } from "@/services/fetchData";
@@ -15,6 +14,9 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 export default function Home() {
+  // TODO: 1) Make sure you have server side rendering
+  // TODO: 2) Make sure you have SWR Fetching most optimized
+
   const API_BLOGS = process.env.NEXT_PUBLIC_API_BLOGS;
   const { data: posts, error } = useFetchData(`${API_BLOGS}?populate=*`);
   if (error) {

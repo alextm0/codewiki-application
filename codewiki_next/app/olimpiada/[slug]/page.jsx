@@ -5,7 +5,6 @@ import React from "react";
 import ResourcesTable from "@/components/EduResources";
 import PageDivider from "@/components/PageDivider";
 import ProblemSetTable from "@/components/ProblemList";
-import { getPostByBadgeAndSlug, getPostBySlug } from "@/services/fetchBlogData";
 
 import Rating from "@/components/Rating";
 import ReactMarkdown from "react-markdown";

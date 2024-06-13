@@ -6,21 +6,8 @@ import Link from "next/link";
 import PageDivider from "@/components/PageDivider";
 import { fetcher } from "@/services/fetchBlogData"; // Assume fetcher is defined to fetch data
 
-// Static generation at build time
-export async function getStaticProps() {
-  const res = await fetch('${NEXT_PUBLIC_API_SOLUTIONS}?filters[slug][$eq]=${slug}&populate=*');
-  const solutions = await res.json();
-
-  return {
-    props: {
-      fallbackData: solutions,
-    },
-    revalidate: 10, // Revalidate every 10 seconds
-  };
-}
-
-export default function SolutionsPage({ fallbackData }) {
-  const { data, error } = useSWR('${NEXT_PUBLIC_API_SOLUTIONS}?filters[slug][$eq]=${slug}&populate=*', fetcher, { fallbackData });
+export default function SolutionsPage() {
+  const { data, error } = useSWR('${NEXT_PUBLIC_API_SOLUTIONS}?filters[slug][$eq]=${slug}&populate=*', fetcher);
 
   if (error) {
     console.error("Error fetching solutions:", error);
